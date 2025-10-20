@@ -1,9 +1,3 @@
-Of course. I've restructured and refined your project's `README.md` to be more professional, clear, and comprehensive.
-
-Here is the revised version:
-
------
-
 # AI Resume Screener
 
 An NLP-based web application built with Python and Streamlit that analyzes resumes to identify the top 3 best-matching job categories. This tool provides a similarity score for each predicted role, helping both recruiters and job seekers quickly assess resume suitability.
@@ -75,10 +69,10 @@ cd Resume-Screener
 
 ### 3\. Install Dependencies
 
-Install all the required Python packages using the `requirements.txt` file.
+Install all the required Python packages.
 
 ```bash
-pip install -r requirements.txt
+pip install scikit-learn nltk streamlit PyPDF2 docx2txt
 ```
 
 ### 4\. Run the Application
@@ -91,14 +85,29 @@ streamlit run app.py
 
 Once the server is running, navigate to the local URL provided in your terminal (usually `http://localhost:8501`). You can then upload a resume or paste text to see the predictions.
 
-**Note on the Dataset:** The pre-trained models (`resume_model.pkl` and `tfidf_vectorizer.pkl`) allow the application to run without the original dataset. The `Preprocessed_data.txt` file, which is over 50MB, is not included in this repository. If you wish to retrain the model or explore the data, you can download it from **[\[INSERT DOWNLOAD LINK HERE\]](https://github.com/noran-mohamed/Resume-Classification-Dataset)** and place it in the root project folder.
+**Note on the Dataset:** The pre-trained models (`resume_model.pkl` and `tfidf_vectorizer.pkl`) allow the application to run without the original dataset. The `Preprocessed_data.txt` file, which is over 50MB, is not included in this repository. If you wish to retrain the model or explore the data, you can download it from **[\[Dataset\]](https://github.com/noran-mohamed/Resume-Classification-Dataset)** and place it in the root project folder.
 
 -----
+
+## 🧐 Limitations & Future Improvements
+
+While effective for its purpose, this project has some inherent limitations due to the classic NLP approach used.
+
+-   **Keyword Dependency:** The model's core logic is based on TF-IDF, which prioritizes keyword frequency over semantic context. This can sometimes lead to inaccurate predictions if a resume contains keywords that overlap with an unrelated job category.
+-   **No Semantic Understanding:** The model does not understand the meaning or relationships between words. It cannot infer skills or experience from context, which is a key limitation compared to more advanced deep learning models.
+-   **Potential Data Bias:** Job categories that are underrepresented in the training dataset may not be predicted as accurately as more common categories.
+
+### Future Work
+
+To address these limitations, future versions of this project could incorporate:
+
+-   **Advanced Embeddings:** Replace TF-IDF with contextual word embeddings from models like **BERT**, **Sentence-BERT**, or **spaCy** to achieve a deeper semantic understanding of the resume text.
+-   **Model Enhancement:** Experiment with more complex architectures, such as neural networks, to better capture the nuances of skills and experiences described in a resume.
 
 ## 👤 Author
 
 **Anirudh Sharma**
 
   - Computer Engineering, Thapar Institute of Technology, Patiala
-  - **GitHub:** [@anirudhqwerty](https://www.google.com/search?q=https://github.com/anirudhqwerty)
+  - **GitHub:** [@anirudhqwerty](https://github.com/anirudhqwerty)
   - **Email:** `therealanirudhsharma@gmail.com`
